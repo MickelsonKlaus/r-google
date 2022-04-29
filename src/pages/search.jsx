@@ -33,7 +33,7 @@ export default function Search() {
               <p className="text-xs text-black/50 font-medium">
                 About {data?.queries?.request[0].totalResults} results
               </p>
-              <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(100px,210px))] justify-center gap-5 mt-5">
+              <div className="w-full grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(100px,210px))] justify-center gap-5 mt-5">
                 {data.items.map((item, i) => {
                   return <Card key={item.cacheId || i} data={item} />;
                 })}
