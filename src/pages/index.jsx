@@ -17,7 +17,7 @@ function index() {
         alt="discover"
         className="w-full h-full object-cover object-center"
       />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-full pt-24">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-full pt-24">
         <h1 className="text-3xl md:text-4xl lg:text-5xl mb-10 md:mb-12 font-medium text-white">
           The web-wide search engine for inspiration, knowledge and lot more
         </h1>
