@@ -48,7 +48,7 @@ export default function SearchForm() {
       )}
       <input
         type="text"
-        className="w-full p-3 md:p-5 bg-none outline-none text-sm border-b-2"
+        className="w-full p-3 md:p-4 bg-none outline-none text-sm border-b-2"
         placeholder="What are you looking for?"
         onChange={handle}
         value={value}
