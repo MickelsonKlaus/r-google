@@ -34,8 +34,8 @@ export default function Search() {
                 About {data?.queries?.request[0].totalResults} results
               </p>
               <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(100px,210px))] justify-center gap-5 mt-5">
-                {data.items.map((item) => {
-                  return <Card key={item.cacheId} data={item} />;
+                {data.items.map((item, i) => {
+                  return <Card key={item.cacheId || i} data={item} />;
                 })}
               </div>
             </div>

@@ -8,7 +8,7 @@ export default function SearchForm() {
   let [typing, setTyping] = useState(false);
   let path = useLocation().search.split("&");
   let q = path[0].split("=")[1];
-  let [value, setValue] = useState(q);
+  let [value, setValue] = useState(q || "");
   let [, dispatch] = useStateValue();
   let navigate = useNavigate();
 
