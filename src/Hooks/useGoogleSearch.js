@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-let key = process.env.API_KEY;
+let key = process.env.REACT_APP_API_KEY;
 
 const useGoogleSearch = (term, start = 1) => {
     let [data, setData] = useState({})
