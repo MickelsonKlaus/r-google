@@ -27,7 +27,7 @@ export default function Search() {
       </Link>
       <SearchForm />
       <div className="max-w-full w-full min-h-[70vh]">
-        {Object.keys(data).length > 0 && (
+        {Object.keys(data).length > 0 && data?.error === undefined && (
           <>
             <div className="mt-5 mb-10">
               <p className="text-xs text-black/50 font-medium">
@@ -69,6 +69,11 @@ export default function Search() {
               </li>
             </ul>
           </>
+        )}
+        {data?.error && (
+          <p className="text-center mt-5 opacity-50">
+            Error loading search results
+          </p>
         )}
       </div>
     </div>
