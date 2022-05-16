@@ -1,6 +1,6 @@
 export default function Card({ data }) {
   return (
-    <div className="w-full h-fit transition-all hover:scale-105 duration-200">
+    <div className="w-full transition-all duration-200 h-fit hover:scale-105">
       <img
         src={
           data?.pagemap?.cse_image
@@ -12,17 +12,17 @@ export default function Card({ data }) {
           data?.pagemap?.cse_image ? "object-cover" : "object-contain"
         }`}
       />
-      <div className="px-1 shadow-sm rounded-b-md pb-2">
-        <h3 className="font-medium my-1">{data?.title}</h3>
-        <p className="text-xs mb-2">{data?.snippet}</p>
-        <p className="text-xs font-medium mb-2">
+      <div className="px-1 pb-2 shadow-sm rounded-b-md">
+        <h3 className="my-1 font-medium">{data?.title}</h3>
+        <p className="mb-2 text-xs break-words">{data?.snippet}</p>
+        <p className="mb-2 text-xs font-medium">
           Webisite: {data?.displayLink}
         </p>
         <a
           href={data?.link}
           rel="noreferrer"
           target="_blank"
-          className="bg-black rounded-full px-3 py-1 w-fit mr-0 ml-auto text-xs text-white block"
+          className="block px-3 py-1 ml-auto mr-0 text-xs text-white bg-black rounded-full w-fit"
         >
           Visit
         </a>
