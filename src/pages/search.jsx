@@ -10,7 +10,7 @@ import useGoogleSearch from "../Hooks/useGoogleSearch";
 export default function Search() {
   let [{ term }] = useStateValue();
   let path = useLocation().search.split("&");
-  let q = path[0].split("=")[1];
+  let q = path[0].split("=")[1].replace(/%20/g," ");
   let start = path[1].split("=")[1];
 
   if (!term) {
