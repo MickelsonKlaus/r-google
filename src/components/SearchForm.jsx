@@ -6,12 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SearchForm() {
   let [typing, setTyping] = useState(false);
-  let path = useLocation().search;
-  let q = "";
-  if (path) {
-    q = path.split("&")[0].split("=")[1].replace(/%20/g, " ");
-  }
-  // console.log(path);
+  let path = useLocation().search.split("&");
+  let q = path[0].split("=")[1];
   let [value, setValue] = useState(q || "");
   let [, dispatch] = useStateValue();
   let navigate = useNavigate();
@@ -55,7 +51,7 @@ export default function SearchForm() {
         className="w-full p-3 text-sm border-b-2 outline-none md:p-4 bg-none"
         placeholder="What are you looking for?"
         onChange={handle}
-        value={value}
+        value={value.replace(/%20/g, " ")}
       />
       <button
         type="submit"
