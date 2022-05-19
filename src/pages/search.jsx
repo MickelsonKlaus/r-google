@@ -10,7 +10,7 @@ import useGoogleSearch from "../Hooks/useGoogleSearch";
 export default function Search() {
   let [{ term }] = useStateValue();
   let path = useLocation().search.split("&");
-  let q = path[0].split("=")[1].replace(/%20/g," ");
+  let q = path[0].split("=")[1].replace(/%20/g, " ");
   let start = path[1].split("=")[1];
 
   if (!term) {
@@ -31,13 +31,17 @@ export default function Search() {
           <>
             <div className="mt-5 mb-10">
               <p className="text-xs font-medium text-black/50">
-                About {data?.queries?.request[0].totalResults} results
+                About {data?.queries?.request[0].totalResults || 0} results
               </p>
-              <div className="w-full grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(100px,210px))] justify-center gap-5 mt-5">
-                {data.items.map((item, i) => {
-                  return <Card key={item.cacheId || i} data={item} />;
-                })}
-              </div>
+              {data.items.length > 0 ? (
+                <div className="w-full grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(100px,210px))] justify-center gap-5 mt-5">
+                  {data.items.map((item, i) => {
+                    return <Card key={item.cacheId || i} data={item} />;
+                  })}
+                </div>
+              ) : (
+                <p className="mt-5 text-sm text-center">No result found</p>
+              )}
             </div>
             <ul className="flex items-center justify-center pb-10 mx-auto w-fit">
               <li className="p-2">
