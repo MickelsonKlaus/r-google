@@ -6,12 +6,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SearchForm() {
   let [typing, setTyping] = useState(false);
-  let path = useLocation().search.split("&");
-  let q = ""
-  if(path){
-  q = path[0].split("=")[1].replace(/%20/g," ");
- 
+  let path = useLocation().search;
+  let q = "";
+  if (path) {
+    q = path.split("&")[0].split("=")[1].replace(/%20/g, " ");
   }
+  // console.log(path);
   let [value, setValue] = useState(q || "");
   let [, dispatch] = useStateValue();
   let navigate = useNavigate();
@@ -42,7 +42,7 @@ export default function SearchForm() {
 
   return (
     <form
-      className="w-full relative flex justify-center items-center bg-white"
+      className="relative flex items-center justify-center w-full bg-white"
       onSubmit={handleSearch}
     >
       {typing && (
@@ -52,14 +52,14 @@ export default function SearchForm() {
       )}
       <input
         type="text"
-        className="w-full p-3 md:p-4 bg-none outline-none text-sm border-b-2"
+        className="w-full p-3 text-sm border-b-2 outline-none md:p-4 bg-none"
         placeholder="What are you looking for?"
         onChange={handle}
         value={value}
       />
       <button
         type="submit"
-        className=" absolute right-4 top-1/2 -translate-y-1/2"
+        className="absolute -translate-y-1/2 right-4 top-1/2"
       >
         <img src={search} alt="search" className="w-4 h-4" />
       </button>
