@@ -7,7 +7,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function SearchForm() {
   let [typing, setTyping] = useState(false);
   let path = useLocation().search.split("&");
-  let q = path[0].split("=")[1].replace(/%20/g," ");
+  let q = ""
+  if(path){
+  q = path[0].split("=")[1].replace(/%20/g," ");
+ 
+  }
   let [value, setValue] = useState(q || "");
   let [, dispatch] = useStateValue();
   let navigate = useNavigate();
